@@ -7,20 +7,24 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CreatureListView: View {
+    var creatures = ["Pikachu", "Squirtle", "Charzard", "Snorlax"]
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationStack {
+            List(creatures, id: \.self) { creature in
+                Text(creature)
+                    .font(.title2)
+                    
+            }
+            .listStyle(.plain)
+            .navigationTitle("Pokemon")
+            
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CreatureListView()
     }
 }
